@@ -167,7 +167,7 @@ function showNearByBuilding(center)
       activeMarker.setIcon(level2Icon);
     }
     if(feature.properties.status_short === 'Level 1') {
-      activeMarker.setIcon(level1Icon);
+      activeMarker.setIcon(level2Icon);
     }
     if(feature.properties.status_short === 'Incomplete Evaluation') {
       activeMarker.setIcon(incompleteIcon);
@@ -263,9 +263,17 @@ function prettyDate(time)
 
 function getBuildingDetailsHTML(building){
   //var address = building.street_number + " " + building.street_name;
+  var displayStatus;
+
+  if(building.status_short === 'Level 2' || building.status_short === 'Level 1') {
+    displayStatus = 'Screening Completed';
+  }
+  else {
+    displayStatus = building.status_short;
+  }
 
   var detailHTML = "<div class='address'><span>"+building.address+"</span></div>";
-  detailHTML += "<div class='infoboxes'><div class='inspectbox'><p>status</p><div class='boxnumber'>" + building.status_short + "</div>"+building.status_long+"</div></div>"
+  detailHTML += "<div class='infoboxes'><div class='inspectbox'><p>status</p><div class='boxnumber'>" + displayStatus + "</div>"+building.status_long+"</div></div>"
 
   return detailHTML;
 }
@@ -309,7 +317,7 @@ $(function(){
         activeMarker.setIcon(level2Icon);
       }
       else if(activeMarker.feature.properties.status_short === 'Level 1') {
-        activeMarker.setIcon(level1Icon);
+        activeMarker.setIcon(level2Icon);
       }
       else if(activeMarker.feature.properties.status_short === 'Incomplete Evaluation') {
         activeMarker.setIcon(incompleteIcon);
@@ -338,7 +346,7 @@ $(function(){
         layer.setIcon(level2Icon);
       }
       else if(feature.properties.status_short === 'Level 1') {
-        layer.setIcon(level1Icon);
+        layer.setIcon(level2Icon);
       }
       else if(feature.properties.status_short === 'Incomplete Evaluation') {
         layer.setIcon(incompleteIcon);
