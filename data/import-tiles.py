@@ -48,7 +48,7 @@ if __name__ == '__main__':
 
     statuses = list()
 
-    with open('statuses-2014-08-25.csv', 'rU') as f:
+    with open('statuses-2014-08-26.csv', 'rU') as f:
         for row in DictReader(f, dialect='excel'):
             if row['latitude']:
                 statuses.append(row)
