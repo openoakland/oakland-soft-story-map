@@ -9,6 +9,14 @@ var __defaults = {
     mapquest_key: "Fmjtd|luua2q6and,aa=o5-hzb59"
     };
 
+var statusDescriptions = {
+  "Level 1": "<p>\"Level 1\" means the Level 1, non-engineered screening required by the City was completed and submitted for the potential soft-story building.</p>",
+  "Level 2": "<p>\"Level 2\" means the building was on a ground slope, potentially higher-risk as a result, and will require an engineering screening in the future.</p><p>The \"Level 2\" markers include 134 buildings whose \"Level 1\" evaluations found that they are on a significant ground slope and will require an engineering evaluation to understand their seismic vulnerability.<p></p>(Important note: \"Level 2\" also includes 11 buildings whose owners voluntarily completed a more detailed engineering analysis even though they were not required to; those buildings may or may not be on significant ground slopes.)</p>",
+  "Exempt": "\"Exempt\" includes buildings that were initially identified as potential soft-story buildings but are exempt from Oakland's soft story ordinance. Buildings may be exempt for a number of reasons:<ul><li>Retrofitted already to acceptable standards</li><li>Built after 1990</li><li>Exempt per an engineer's letter</li><li>< 5 units</li><li>No large openings</li><li>No ground level parking or are commercial</li><li>Inspected by the City</li>",
+  "Incomplete Evaluation": "<p>\"Incomplete evaluation\" includes buildings where the owner was non-responsive, notifications were returned to sender, owners were granted an extension, or a level 1 screening was pending review.</p><p>A total of 339 addresses received but did not respond to the notice, and 129 letters were returned to sender. The building department conducted an exterior inspection of these buildings. 15 were exempted based on this inspection.</p><p>This category also includes 46 buildings where a level 1 screening was submitted, but there was no data on the ground slope given to determine if they should undergo a Level 2 analysis.</p>",
+  "Completed Evaluation": ""
+}
+
 //
 // map.setView() with a check for SF bounds.
 //
@@ -266,14 +274,14 @@ function getBuildingDetailsHTML(building){
   var displayStatus;
 
   if(building.status_short === 'Level 2' || building.status_short === 'Level 1') {
-    displayStatus = 'Screening Completed';
+    displayStatus = 'Completed Evaluation';
   }
   else {
     displayStatus = building.status_short;
   }
 
   var detailHTML = "<div class='address'><span>"+building.address+"</span></div>";
-  detailHTML += "<div class='infoboxes'><div class='inspectbox'><p>status</p><div class='boxnumber'>" + displayStatus + "</div>"+building.status_long+"</div></div>"
+  detailHTML += "<div class='infoboxes'><div class='inspectbox'><p>status</p><div class='boxnumber'>" + displayStatus + "</div>"+building.status_long+"</div>" + statusDescriptions[displayStatus] + "</div>";
 
   return detailHTML;
 }
