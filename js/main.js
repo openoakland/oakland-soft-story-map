@@ -76,7 +76,7 @@ function onAddressFound(response)
   var center = response.results[0].locations[0].latLng;
   fromAddressSearch = true;
   boundedSetView(center);
-  showNearByBuilding(map.getCenter())
+  //showNearByBuilding(map.getCenter())
 }
 
 //
@@ -397,7 +397,7 @@ $(function(){
     // then we show the building nearest to the address (or at this point map center)
 
     if(fromAddressSearch)
-      showNearByBuilding(map.getCenter())
+      //showNearByBuilding(map.getCenter())
     fromAddressSearch = false;
   });
 
