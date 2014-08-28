@@ -312,7 +312,7 @@ $(function(){
     // Otherwise, just pick out the center of the city
     //
     map.setView(__defaults.center, 14);
-    map.locate({setView: false, maxZoom: 18});
+    //map.locate({setView: false, maxZoom: 18});
   }
 
   var geojsonURL = __defaults.data_url+'/tiles/{z}/{x}/{y}.json';
