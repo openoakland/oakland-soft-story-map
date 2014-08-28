@@ -103,8 +103,8 @@ var buildingIcon = L.icon({iconUrl: 'img/falcon_map_marker@1x.png',
                            //iconSize: [31, 41],
                            iconSize: sizeForAllIcons});
                            //iconAnchor: [14, 41]});
-var iconActive = L.icon({iconUrl: 'img/falcon_map_marker_active2@1x.png',
-                                 iconRetinaUrl: 'img/falcon_map_marker_active2@2x.png',
+var iconActive = L.icon({iconUrl: 'img/falcon_map_marker_active@1x.png',
+                                 iconRetinaUrl: 'img/falcon_map_marker_active@2x.png',
                                  //iconSize: [31, 41],
                                  iconSize: sizeForAllIcons});
                                  //iconAnchor: [14, 41]});
