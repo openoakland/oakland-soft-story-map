@@ -9,6 +9,12 @@ var __defaults = {
     mapquest_key: "Fmjtd|luua2q6and,aa=o5-hzb59"
     };
 
+var statusColors = {
+  "Exempt": "#1c893f",
+  "Completed Evaluation": "#e75237",
+  "Incomplete Evaluation": "#f97848"
+};
+
 var statusDescriptions = {
   "Exempt": "\"Exempt\" includes buildings that were initially identified as potential soft-story buildings but are exempt from Oakland's soft-story ordinance. Buildings may be exempt for a number of reasons:<ul><li>Retrofitted already to acceptable standards</li><li>Built after 1990 (when a new building code was adopted)</li><li>Exempt per an engineer's letter</li><li>< 5 units</li><li>No large openings</li><li>No ground level parking or are commercial</li><li>Inspected by the City</li>",
   "Incomplete Evaluation": "<p>\"Incomplete evaluation\" includes potential soft-story buildings where the owner was non-responsive, notifications were returned to sender, owners were granted an extension, or a Level 1 screening was pending review.</p><p>A total of 339 addresses received but did not respond to the notice, and 129 letters were returned to sender. The building department conducted an exterior inspection of these buildings. 15 were exempted based on this inspection.</p><p>This category also includes 46 buildings where a Level 1 screening was submitted, but there was no data on the ground slope given to determine if it should undergo a Level 2 (engineering) analysis.</p>",
@@ -283,9 +289,11 @@ function getBuildingDetailsHTML(building){
     displayStatus = building.status_short;
   }
 
+  color = statusColors[displayStatus];
+
   var detailHTML = "<div class='address'><span>"+building.address+"</span></div>";
   detailHTML += "<div id='lolwut' style='width:40px; height:20px; background-color:#FF8B00; color:white; float:right; text-align:center; display:inline-block; line-height:20px; cursor:pointer;'>X</div>";
-  detailHTML += "<div class='infoboxes'><div class='inspectbox'><p>status</p><div class='boxnumber'>" + displayStatus + "</div><p>"+building.status_long+"</p></div>" + statusDescriptions[displayStatus] + "</div>";
+  detailHTML += "<div class='infoboxes'><div class='inspectbox' style='background-color:"+color+";'><p>status</p><div class='boxnumber'>" + displayStatus + "</div><p>"+building.status_long+"</p></div>" + statusDescriptions[displayStatus] + "</div>";
   detailHTML += "<script>$('#lolwut').click(showAbout)</script>"
 
   return detailHTML;
