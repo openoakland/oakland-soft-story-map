@@ -7,6 +7,10 @@ textarea {
 	color: #666;
 }
 
+img {
+  max-width: 100%;
+}
+
 a {
 	color: #00699A;
 	font-weight: bold;
