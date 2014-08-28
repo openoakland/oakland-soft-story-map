@@ -52,11 +52,16 @@ ul {
   white-space: nowrap;
 }
 #housinginfo div {
+  display: inline-block;
 	padding: 8px 0px;
 }
 
 #housinginfo span {
 	font-weight: bold;
+}
+
+#housinginfo .address {
+  display: inline-block;
 }
 
 #housinginfo .address span {
@@ -71,7 +76,7 @@ ul {
 #housinginfo div.infoboxes div.inspectbox,
 #housinginfo div.infoboxes div.violationbox {
 	color: #fff;
-	width: 98%;
+	width: 100%;
 	text-align: center;
 	margin-bottom: 10px;
 }

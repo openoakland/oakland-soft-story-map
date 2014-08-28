@@ -15,6 +15,11 @@ var statusDescriptions = {
   "Completed Evaluation": "<p>\"Completed evaluation\" means a potential soft-story building had a Level 1 screening submitted to the City and it was not found to be exempt from the ordinance. (A building would be exempt, for example, if the screening found that the building had no large openings.)</p><p>Completed evaluations includes:<ul><li>Buildings with completed screenings found not to be on a slope</li><li>Buildings on a slope, meaning an engineering analysis (\"Level 2\") is required to assess its vulnerability</li><li>Buildings with owners who voluntarily decided to obtain an engineering analysis (\"Level 2\")</li></ul>"
 };
 
+function showAbout(){
+  $("div#housinginfo").html("");
+  $('#about').show();
+}
+
 //
 // map.setView() with a check for SF bounds.
 //
@@ -279,7 +284,9 @@ function getBuildingDetailsHTML(building){
   }
 
   var detailHTML = "<div class='address'><span>"+building.address+"</span></div>";
-  detailHTML += "<div class='infoboxes'><div class='inspectbox'><p>status</p><div class='boxnumber'>" + displayStatus + "</div>"+building.status_long+"</div>" + statusDescriptions[displayStatus] + "</div>";
+  detailHTML += "<div id='lolwut' style='width:40px; height:20px; background-color:#FF8B00; color:white; float:right; text-align:center; display:inline-block; line-height:20px; cursor:pointer;'>X</div>";
+  detailHTML += "<div class='infoboxes'><div class='inspectbox'><p>status</p><div class='boxnumber'>" + displayStatus + "</div><p>"+building.status_long+"</p></div>" + statusDescriptions[displayStatus] + "</div>";
+  detailHTML += "<script>$('#lolwut').click(showAbout)</script>"
 
   return detailHTML;
 }
@@ -309,6 +316,7 @@ $(function(){
   }
 
   var geojsonURL = __defaults.data_url+'/tiles/{z}/{x}/{y}.json';
+
 
   function selectBuilding(feature, layer){
     $('#about').hide();
