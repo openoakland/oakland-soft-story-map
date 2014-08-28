@@ -1,7 +1,7 @@
-OHHS Falcon - Data
+Soft Stories - Data
 ==================
 
-OHHS sample data is not found here, but can be imported and transformed into
+Soft story building sample data is not found here, but can be imported and transformed into
 a static directory of geographic data files.
 
 Install
@@ -23,7 +23,7 @@ on linux:
 Usage
 -----
 
-`./import-tiles.py` will import OHHS data from a remote URL and index it into
+`./import-tiles.py` will import building data from a remote URL and index it into
 a directory of [GeoJSON](http://www.geojson.org/) files in `tiles`.
 
 `./import-buildings.py` will import OHHS data from a remote URL and generate
