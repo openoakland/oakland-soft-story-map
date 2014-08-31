@@ -129,6 +129,7 @@ L.TileLayer.GeoJSON = L.TileLayer.Ajax.extend({
         L.TileLayer.Ajax.prototype.onAdd.call(this, map);
         this.on('load', this._tilesLoaded);
         map.addLayer(this.geojsonLayer);
+        map.scrollWheelZoom.disable();
     },
     onRemove: function (map) {
         map.removeLayer(this.geojsonLayer);
