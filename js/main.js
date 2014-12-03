@@ -21,6 +21,7 @@ var statusDescriptions = {
   "Completed Evaluation": "<p>\"Completed evaluation\" means a potential soft-story building had a Level 1 screening submitted to the City and it was not found to be exempt from the ordinance. (A building would be exempt, for example, if the screening found that the building had no large openings.)</p><p>Completed evaluations includes:<ul><li>Buildings with completed screenings found not to be on a slope</li><li>Buildings on a slope, meaning an engineering analysis (\"Level 2\") is required to assess its vulnerability</li><li>Buildings with owners who voluntarily decided to obtain an engineering analysis (\"Level 2\")</li></ul>"
 };
 
+
 function showAbout(){
   $("div#housinginfo").html("");
   $('#about').show();
@@ -135,8 +136,18 @@ var exemptIcon = L.icon({iconUrl: 'img/falcon_map_marker_exempt@1x.png',
                                     iconSize: sizeForAllIcons});
                                     //iconAnchor: [14, 41]});
 
+var iconForStatus = function(status) {
+  if(status == "Exempt") {
+    return exemptIcon;
+  } else if (status == "Completed Evaluation") {
+    return level2Icon;
+  } else if (status == "Incomplete Evaluation") {
+    return incompleteIcon;
+  }
+}
 
 var activeMarker = null;
+
 
 
 function hasViolations(building){
@@ -199,6 +210,24 @@ function showNearByBuilding(center)
 }
 
 
+function addLegend(map) {
+
+  var legend = L.control({position: 'topright'});
+
+  legend.onAdd = function(map) {
+    var div = L.DomUtil.create('div', 'info legend');
+    var statuses = Object.keys(statusDescriptions);
+    statuses.forEach(function(status) {
+      var icon = iconForStatus(status);
+      console.log(icon);
+      window.lastIcon = icon;
+      div.innerHTML += '<p><img src="' + icon.options.iconUrl + '" />' + status + '</p>';
+    });
+    return div;
+  }
+  legend.addTo(map);
+};
+
 //
 // Set up map, but don't set the view to anything.
 //
@@ -209,9 +238,10 @@ function setupMap(element)
         subDomains = ['otile1','otile2','otile3','otile4'],
         mapquestAttrib = 'Data by <a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> and contributors.',
         mapquest = new L.TileLayer(mapquestUrl, {maxZoom: 18, minZoom: 14, attribution: mapquestAttrib, subdomains: '1234'});
-    
+
     map.addLayer(mapquest);
-    
+    addLegend(map);
+
     return map;
 }
 
