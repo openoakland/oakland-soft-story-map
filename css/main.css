@@ -190,3 +190,20 @@ input {
 #housinginfo div.ownername {
 	clear: both;
 }
+
+.legend {
+  background-color: #eee;
+  padding: 10px;
+}
+
+.legend p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.legend img {
+  height: 16px;
+  width: 12px;
+  margin-bottom: -4px;
+  margin-right: 6px;
+}
