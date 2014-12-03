@@ -212,7 +212,7 @@ function showNearByBuilding(center)
 
 function addLegend(map) {
 
-  var legend = L.control({position: 'topright'});
+  var legend = L.control({position: 'bottomleft'});
 
   legend.onAdd = function(map) {
     var div = L.DomUtil.create('div', 'info legend');
