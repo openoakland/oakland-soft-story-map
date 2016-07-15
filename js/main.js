@@ -233,13 +233,9 @@ function addLegend(map) {
 //
 function setupMap(element)
 {
-    var map = L.map('map'),
-        mapquestUrl = 'http://otile{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
-        subDomains = ['otile1','otile2','otile3','otile4'],
-        mapquestAttrib = 'Data by <a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> and contributors.',
-        mapquest = new L.TileLayer(mapquestUrl, {maxZoom: 18, minZoom: 14, attribution: mapquestAttrib, subdomains: '1234'});
-
-    map.addLayer(mapquest);
+    var map = L.map('map');
+    var tileLayer = new L.StamenTileLayer("terrain");
+    map.addLayer(tileLayer);
     addLegend(map);
 
     return map;
