@@ -50,6 +50,11 @@ ul {
   margin: 0px 0px;
 }
 
+#getinvolved{
+  text-align: center;
+  background-color: #FFFF00;
+}
+
 #housinginfo em{ 
   font-weight: bold;
   font-style: normal;
