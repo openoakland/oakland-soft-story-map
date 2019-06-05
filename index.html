@@ -3,140 +3,142 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Soft Story Buildings in Oakland</title>
-        <meta name="Oakland Soft Story Buildings" content="map to raise awareness of buildings susceptible to earthquake damage">
-        <meta name="viewport" content="width=device-width">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Soft Story Buildings in Oakland</title>
+  <meta name="Oakland Soft Story Buildings" content="map to raise awareness of buildings susceptible to earthquake damage">
+  <meta name="viewport" content="width=device-width">
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
-        <!--[if lte IE 8]>
-            <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css" />
-            <![endif]-->
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
-        <div id="header"><img src="img/soft-story-title-alpha.png" /></div>
-        <div id="map"></div>
-        <form id="addressentry">
-          <input type="text" id="address" placeholder="Enter an address" /><input type="submit" value="Find" id="submitaddress" />
-<!--
-          <div id="sampleaddresses">
-            <p>For example <a href="#" onclick="$('#address').val($(this).text());$('#addressentry').submit(); return false;" >670 Stevenson St.</a>, 
-            <a href="#" onclick="$('#address').val($(this).text());$('#addressentry').submit(); return false;" >50 Turk St.</a></p>
-          </div>
-!-->
-        </form>
-        <div id="getinvolved">
-          <h3>
-          <a href="https://docs.google.com/forms/d/1ipYk_0Mu6tndnBMOOMijy9SqI4jZKgiFmP6JbifiJZw/edit">Click here to get involved in 2019!</a>
-          </h3>
-        </div>
-        <div id="about"> 
-          <h3>What are soft story buildings?</h3>
-          <p>
-            Soft-story buildings are <strong>multi-unit, wood-frame, residential</strong> buildings with <strong>a first story that lacks adequate strength or stiffness to prevent leaning or collapse in an earthquake</strong>. These buildings pose a safety risk to tenants and occupants, a financial risk to owners and risk the recovery of the City and region.
-          </p>
-          <p>
-            <img src="img/soft2_b.jpg">
-            <img src="img/soft1_b.png">
-          </p>
-          <p>
-          It is not possible to know simply by looking at the outside of the building that it is a soft-story. Large openings for garage doors or commercial spaces are a strong indicator, but only a detailed analysis by a structural engineer can definitively determine whether a building is a soft-story.
-          </p>
-          <p>
-            Soft story buildings are not the only buildings at risk in an earthquake, but they are more vulnerable in general.
-          </p>
-          <h3>What is this data?</h3>
-          <p>
-            This data shows the results of a screening program for potential soft-story buildings in Oakland. In 2008 Oakland surveyed its multi-family buildings with five or more units, and in 2009 passed <a href="http://clerkwebsvr1.oaklandnet.com/attachments/22928.pdf">an ordinance</a> that required the owners of these buildings to complete a simple evaluation of the ground floor. This data shows the results of these screenings as of early 2013.
-          </p>
-          <p>
-The soft-story program is still in progress, and therefore the status of a building may have changed (for example, if an owner submitted a screening or a building was retrofitted more recently).
-          </p>
-        <h3>What buildings were screened?</h3>
-        Oakland's screening program applied only to some of the potential soft-story buildings, specifically those:
-        <ul>
-          <li>Permitted for construction prior to adoption on January 1, 1991 of the 1988 edition of the Uniform Building Code</li>
-          <li>With parking or commercial on the ground floor</li>
-          <li>With 5 or more residential units (apartments, condos, or live-work)</li>
-          <li>Not structurally retrofitted for earthquakes forces already</li>
-          <li>2+ stories</li>
-          </ul>
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css" />
+  <![endif]-->
+  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+  <!--[if lt IE 7]>
+    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+  <![endif]-->
+  <div id="header"><img src="img/soft-story-title-alpha.png" /></div>
+  <div id="map"></div>
+  <form id="addressentry">
+    <input type="text" id="address" placeholder="Enter an address" /><input type="submit" value="Find" id="submitaddress" />
+    <!--
+      <div id="sampleaddresses">
+      <p>For example <a href="#" onclick="$('#address').val($(this).text());$('#addressentry').submit(); return false;" >670 Stevenson St.</a>,
+      <a href="#" onclick="$('#address').val($(this).text());$('#addressentry').submit(); return false;" >50 Turk St.</a></p>
+      </div>
+      !-->
+  </form>
+  <div id="getinvolved">
+    <h3>
+      <a href="https://docs.google.com/forms/d/1ipYk_0Mu6tndnBMOOMijy9SqI4jZKgiFmP6JbifiJZw/edit">Click here to get involved in 2019!</a>
+    </h3>
+  </div>
+  <div id="about">
+    <h3>What are soft story buildings?</h3>
+    <p>
+    Soft-story buildings are <strong>multi-unit, wood-frame, residential</strong> buildings with <strong>a first story that lacks adequate strength or stiffness to prevent leaning or collapse in an earthquake</strong>. These buildings pose a safety risk to tenants and occupants, a financial risk to owners and risk the recovery of the City and region.
+    </p>
+    <p>
+    <img src="img/soft2_b.jpg">
+    <img src="img/soft1_b.png">
+    </p>
+    <p>
+    It is not possible to know simply by looking at the outside of the building that it is a soft-story. Large openings for garage doors or commercial spaces are a strong indicator, but only a detailed analysis by a structural engineer can definitively determine whether a building is a soft-story.
+    </p>
+    <p>
+    Soft story buildings are not the only buildings at risk in an earthquake, but they are more vulnerable in general.
+    </p>
 
-        <h3>What can you do?</h3>
-        <p>
-        Use this tool to find your building's screening status. You can also talk to your building owner to learn more specifics about the seismic safety of your specific building.
-      </p>
-      <p>
-        To learn more about soft-story buildings, read the the Association of Bay Area Governments (ABAG)'s <a href="http://resilience.abag.ca.gov/wp-content/documents/OaklandSoftStoryReport_102914.pdf">detailed analysis of the issue in Oakland</a> and check out <a href="http://www2.oaklandnet.com/Government/o/PBN/OurOrganization/BuildingServices/o/Permits/DOWD008964">the City's soft-story seismic screening program FAQ</a>.
-      </p>
-      <p>
-        The ABAG report includes both analysis of this screening data and recommendations for helping the City, building owners, and tenants improve the city's soft-story building resiliency.
-      </p>
+    <h3>What is this data?</h3>
+    <p>
+    This data shows the results of a screening program for potential soft-story buildings in Oakland. In 2008 Oakland surveyed its multi-family buildings with five or more units, and in 2009 passed <a href="http://clerkwebsvr1.oaklandnet.com/attachments/22928.pdf">an ordinance</a> that required the owners of these buildings to complete a simple evaluation of the ground floor. This data shows the results of these screenings as of early 2013.
+    </p>
+    <p>
+    The soft-story program is still in progress, and therefore the status of a building may have changed (for example, if an owner submitted a screening or a building was retrofitted more recently).
+    </p>
 
-      <h3>Contributors</h3>
-      <p>This is a project by </p>
-      <a href="http://openoakland.org/"><img src="img/oologo.png" width=300px /></a>
-      <p>Connect with us (<a href="http://twitter.com/openoakland">@OpenOakland</a>).</p>
-      <p>If you have feedback on this app, please <a href=mailto:leadership@openoakland.org?Subject=SoftStory>let us know</a>!</p>
-      <p>
-        This view of the data was primarily built by two folks:
-        <ul>
-          <li>Dave Guarino (<a href="https://twitter.com/allafarce">@allafarce</a>)</li>
-          <li>Michal Migurski (<a href="https://twitter.com/michalmigurski">@michalmigurski</a>)</li>
-        </ul>
-      </p>
-      <p>
-        But there have been many other contributors to this project, including:
-      </p>
-        <ul>
-          <li>Cris Cristina</li>
-          <li>Jay Bolton</li>
-          <li>Steve Spiker</li>
-          <li>Molly McLeod</li>
-          <li>Alan Williams</li>
-          <li>And many others at OpenOakland over the course of this year</li>
-        </ul>
-      </p>
-      <p>This is an open source project - if you want to contribute in any way, you'll find the code on <a href="https://github.com/openoakland/oakland-soft-story-map">GitHub</a>.</p>
-      <p>If you have an interest in raising awareness of this housing safety issue with tenants and owners (or working on related projects!) join us on Tuesdays for <a href="http://meetup.com/OpenOakland">Civic Hack Night</a>!
-      </p>
-      <p>You can also access the data in one convenient file <a href="https://github.com/openoakland/oakland-soft-story-map/blob/gh-pages/data/statuses-2014-08-26.csv">here</a>.</p>
-      <h3>Thanks</h3>
-      <p>
-        We want to thank the City of Oakland (in particular, the Emergency Management Services and Building Services divisions) for working with us to collect and understand the data, as well as ABAG for its superb analysis and help understanding its report.
-      </p>
-      <p>
-      </p>
+    <h3>What buildings were screened?</h3>
+    Oakland's screening program applied only to some of the potential soft-story buildings, specifically those:
+    <ul>
+      <li>Permitted for construction prior to adoption on January 1, 1991 of the 1988 edition of the Uniform Building Code</li>
+      <li>With parking or commercial on the ground floor</li>
+      <li>With 5 or more residential units (apartments, condos, or live-work)</li>
+      <li>Not structurally retrofitted for earthquakes forces already</li>
+      <li>2+ stories</li>
+    </ul>
 
-        </div>
+    <h3>What can you do?</h3>
+    <p>
+    Use this tool to find your building's screening status. You can also talk to your building owner to learn more specifics about the seismic safety of your specific building.
+    </p>
+    <p>
+    To learn more about soft-story buildings, read the the Association of Bay Area Governments (ABAG)'s <a href="http://resilience.abag.ca.gov/wp-content/documents/OaklandSoftStoryReport_102914.pdf">detailed analysis of the issue in Oakland</a> and check out <a href="http://www2.oaklandnet.com/Government/o/PBN/OurOrganization/BuildingServices/o/Permits/DOWD008964">the City's soft-story seismic screening program FAQ</a>.
+    </p>
+    <p>
+    The ABAG report includes both analysis of this screening data and recommendations for helping the City, building owners, and tenants improve the city's soft-story building resiliency.
+    </p>
 
-        <div id="housinginfo">
+    <h3>Contributors</h3>
+    <p>This is a project by </p>
+    <a href="http://openoakland.org/"><img src="img/oologo.png" width=300px /></a>
+    <p>Connect with us (<a href="http://twitter.com/openoakland">@OpenOakland</a>).</p>
+    <p>If you have feedback on this app, please <a href=mailto:leadership@openoakland.org?Subject=SoftStory>let us know</a>!</p>
+    <p>
+    This view of the data was primarily built by two folks:
+    <ul>
+      <li>Dave Guarino (<a href="https://twitter.com/allafarce">@allafarce</a>)</li>
+      <li>Michal Migurski (<a href="https://twitter.com/michalmigurski">@michalmigurski</a>)</li>
+    </ul>
+    </p>
+    <p>
+    But there have been many other contributors to this project, including:
+    </p>
+    <ul>
+      <li>Cris Cristina</li>
+      <li>Jay Bolton</li>
+      <li>Steve Spiker</li>
+      <li>Molly McLeod</li>
+      <li>Alan Williams</li>
+      <li>And many others at OpenOakland over the course of this year</li>
+    </ul>
+    </p>
+    <p>This is an open source project - if you want to contribute in any way, you'll find the code on <a href="https://github.com/openoakland/oakland-soft-story-map">GitHub</a>.</p>
+    <p>If you have an interest in raising awareness of this housing safety issue with tenants and owners (or working on related projects!) join us on Tuesdays for <a href="http://meetup.com/OpenOakland">Civic Hack Night</a>!
+    </p>
+    <p>You can also access the data in one convenient file <a href="https://github.com/openoakland/oakland-soft-story-map/blob/gh-pages/data/statuses-2014-08-26.csv">here</a>.</p>
 
-        </div>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-        <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
-        <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
-        <script src="js/vendor/TileLayer.GeoJSON.js"></script>
-        <script src="js/main.js"></script>
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    <h3>Thanks</h3>
+    <p>
+    We want to thank the City of Oakland (in particular, the Emergency Management Services and Building Services divisions) for working with us to collect and understand the data, as well as ABAG for its superb analysis and help understanding its report.
+    </p>
+    <p>
+    </p>
+  </div>
+
+  <div id="housinginfo">
+
+  </div>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+  <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+  <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
+  <script src="js/vendor/TileLayer.GeoJSON.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
           ga('create', 'UA-43486781-3', 'auto');
           ga('send', 'pageview');
-        </script>
-    </body>
+  </script>
+</body>
 </html>
